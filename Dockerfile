@@ -5,7 +5,7 @@ RUN \
   # first, update everything
   pacman -Syyu --noconfirm --noprogressbar --quiet && \
   # install useful packages
-  pacman -S awk base-devel cockpit git nano packagekit rxvt-unicode sudo zsh --noconfirm --noprogressbar --quiet && \
+  pacman -S awk git nano rxvt-unicode sudo zsh --noconfirm --noprogressbar --quiet && \
   # now lets cleanup
   pacman -Scc --noconfirm --noprogressbar --quiet && \
   # fix systemd
@@ -21,8 +21,7 @@ RUN \
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
   # create user account
   echo "emileet ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
-  useradd -m -G root -s /usr/bin/zsh emileet && \
-  cp ~/.zshrc /home/emileet/.zshrc && \
+  useradd -m -G wheel -s /usr/bin/zsh emileet && \
   # set user passwd
   echo "emileet:emileet" | chpasswd && \
   # set root passwd
@@ -33,5 +32,5 @@ RUN \
 EXPOSE 9090
 ENV LANG=en_US.UTF-8
 ENV container=docker
-VOLUME ["/sys/fs/cgroup", "/run", "/setup"]
+VOLUME ["/sys/fs/cgroup", "/run"]
 CMD  ["/usr/lib/systemd/systemd"]
