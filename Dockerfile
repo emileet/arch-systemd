@@ -22,10 +22,6 @@ RUN \
   # create user account
   echo "emileet ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
   useradd -m -G wheel -s /usr/bin/zsh emileet && \
-  # set user passwd
-  echo "emileet:emileet" | chpasswd && \
-  # set root passwd
-  echo "root:emileet" | chpasswd && \
   # set shell
   chsh -s /usr/bin/zsh
 
