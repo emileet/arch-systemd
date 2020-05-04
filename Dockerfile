@@ -29,7 +29,7 @@ RUN \
   # set shell
   chsh -s /usr/bin/zsh
 
-EXPOSE 9090
+EXPOSE 80
 ENV LANG=en_US.UTF-8
 ENV container=docker
 VOLUME ["/sys/fs/cgroup", "/run"]
