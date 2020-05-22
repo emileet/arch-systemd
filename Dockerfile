@@ -13,7 +13,7 @@ RUN rm -f /lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup* && \
     rm -f /lib/systemd/system/multi-user.target.wants/* && \
     rm -f /lib/systemd/system/local-fs.target.wants/* && \
     rm -f /lib/systemd/system/basic.target.wants/* && \
-    rm -f /lib/systemd/system/systemd-update-utmp* ** \
+    rm -f /lib/systemd/system/systemd-update-utmp* && \
     rm -f /etc/systemd/system/*.wants/*
 
 # setup environment
