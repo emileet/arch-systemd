@@ -1,17 +1,21 @@
 # emileet/arch-systemd
 
-the arch experience with systemd in a docker container
+the arch experience with systemd in a container
 
 ## instructions
 
-clone this repo then build a docker image (optionally configure `Dockerfile` to your needs)
+clone this repo and then build an image
 
 ```shell
-cd arch-systemd
-docker build --tag emileet/arch-systemd .
+docker build --tag emileet/arch-systemd --build-arg username=emileet .
 ```
 
-now spin up a container (optionally configure `start.sh` to your needs)
+now spin up a container and execute zsh within it
 ```shell
-sh start.sh plsnobully
+docker run -ti --detach --privileged=true \
+  -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
+  --name arch-systemd \
+  emileet/arch-systemd
+
+docker exec -it arch-systemd /bin/zsh
 ```
