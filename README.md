@@ -1,4 +1,5 @@
 # emileet/arch-systemd
+[![pipeline status](https://git.plsnobully.me/emileet/arch-systemd/badges/master/pipeline.svg)](https://git.plsnobully.me/emileet/arch-systemd/-/commits/master)
 
 the arch experience with systemd in a container
 
